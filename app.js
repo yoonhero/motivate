@@ -1,5 +1,7 @@
 
 const RANDOM_QUOTE_API_URL = "https://api.quotable.io/random";
+const API_KEY = "2730f9cb5de4ebb83b17f42a9404b685"
+
 const quotes = [{
     quotation: "실패란 넘어지는 것이 아니라, 넘어진 자리에 머무는 것이다",
 
@@ -344,6 +346,54 @@ const quotes = [{
 
 ];
 
+function getLocation(){
+    try {
+        navigator.geolocation.getCurrentPosition(showPosition);
+
+
+    } catch (error) {
+      console.log("Can't find.", "So Sad");
+    }
+}
+let latitude 
+let longitude
+function showPosition(position) {
+    latitude =  position.coords.latitude;
+    longitude = position.coords.longitude;
+    getWeather(latitude, longitude)
+}
+let weatherCondition = false
+async function getWeather(latitude, longitude){
+    const weatherResult = await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&APPID=${API_KEY}&units=metric`)
+        .then((response) => response.json())
+    const location = weatherResult.name
+    const temp = weatherResult.main.temp
+    const humidity = weatherResult.main.humidity
+    const icon = weatherResult.weather[0].icon
+    document.querySelector(".temp").innerText = temp
+    document.querySelector(".loca").innerText = location
+    document.querySelector(".weatherIcon").src = `http://openweathermap.org/img/wn/${icon}.png`
+    document.querySelector(".Icon").src = `http://openweathermap.org/img/wn/${icon}.png`
+    document.querySelector(".humi").innerText = humidity
+    document.querySelector(".Icon").addEventListener("mouseover", showWeatherContainer)
+    document.querySelector(".Icon").addEventListener("mouseout", () => {
+        setTimeout(hideWeatherContainer, 2000)
+    })
+    weatherCondition = true
+}
+  
+function showWeatherContainer(){
+    if(weatherCondition){
+        document.querySelector(".weatherContainer").classList.remove("hidden")
+    }
+}
+function hideWeatherContainer(){
+    
+
+    document.querySelector(".weatherContainer").classList.add("hidden")
+}
+
+
 
 function clock() {
     var clockTarget = document.getElementById("clock");
@@ -439,6 +489,7 @@ function changeLang(){
 }
 var LS_VALUE
 function init() {
+    getLocation()
     document.querySelector(".slide_a").addEventListener("click", openSlideMenu)
     document.querySelector(".close").addEventListener("click", closeSlideMenu)
     document.querySelector(".darkBtn").addEventListener("click", darkMode)
