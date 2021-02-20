@@ -364,7 +364,7 @@ function showPosition(position) {
 }
 let weatherCondition = false
 async function getWeather(latitude, longitude){
-    const weatherResult = await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&APPID=${API_KEY}&units=metric`)
+    const weatherResult = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&APPID=${API_KEY}&units=metric`)
         .then((response) => response.json())
     const location = weatherResult.name
     const temp = weatherResult.main.temp
@@ -372,8 +372,8 @@ async function getWeather(latitude, longitude){
     const icon = weatherResult.weather[0].icon
     document.querySelector(".temp").innerText = temp
     document.querySelector(".loca").innerText = location
-    document.querySelector(".weatherIcon").src = `http://openweathermap.org/img/wn/${icon}.png`
-    document.querySelector(".Icon").src = `http://openweathermap.org/img/wn/${icon}.png`
+    document.querySelector(".weatherIcon").src = `https://openweathermap.org/img/wn/${icon}.png`
+    document.querySelector(".Icon").src = `https://openweathermap.org/img/wn/${icon}.png`
     document.querySelector(".humi").innerText = humidity
     document.querySelector(".Icon").addEventListener("mouseover", showWeatherContainer)
     document.querySelector(".Icon").addEventListener("mouseout", () => {
