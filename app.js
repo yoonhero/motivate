@@ -1,5 +1,5 @@
 
-const RANDOM_QUOTE_API_URL = "http://api.quotable.io/random";
+const RANDOM_QUOTE_API_URL = "https://api.quotable.io/random";
 const quotes = [{
     quotation: "실패란 넘어지는 것이 아니라, 넘어진 자리에 머무는 것이다",
 
