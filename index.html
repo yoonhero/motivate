@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="color-scheme" content="dark light">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+    <title>동기부여</title>
+
+</head>
+
+<body>
+
+    <div class="modal page" id="animateText" style="z-index: 20;">
+        <div class="modal__overlay" >
+
+            <h1 class="clock">00:00</h1>
+            <h1 class="firstPage">Please Enter Your Name</h1>
+            <form action="submit" class="nameForm">
+                <input type="text" class="nameInput" />
+              </form>
+
+        </div>
+
+    </div>
+    
+    <div id="content">
+
+        <span class="slide">
+            <a class="slide_a"><i class="fas fa-bars"></i></a>
+        </span>
+
+        <div id="menu" class="nav">
+            <a href="#" class="close">
+                <i class="fas fa-times"></i>
+            </a>
+            
+            <form action="submit" class="form js-toDoForm">
+                <input type="text" class="input_text" placeholder="Write a to do" />
+              </form>
+                  <h3>ToDo</h3>
+                  <ul class="pending_li js-toDoList" style="margin-bottom: 20rem;"></ul>
+                  <h3>
+                    Done
+                  </h3>
+                  <ul class="finished_li js-toDoList" style="margin-bottom: 20rem;"></ul>
+        </div>
+
+
+    </div>
+
+    <div class="modal" id="animateText">
+        <div class="modal__overlay">
+
+            <h1 id="clock">00:00</h1>
+            <div class="bar">
+                <form class="search_form">
+                    <input class="searchbar" type="text" title="Search">
+                    <a href="#"> <i class="fas fa-search search_button "></i></a>
+                </form>
+                
+              </div>
+            <div id="str"></div>
+            <div id="str_author"></div>
+            <button class="darkBtn"><i class="fas fa-moon"></i></button>
+            <div class="selectLang">
+                <img src="./img/korea.png" class="selectLangImg">
+            </div>
+            	
+            
+            <p class="user"><span class="sayHello">Hello!  </span><span class="userName"> </span>!</p>
+        </div>
+
+    </div>
+    <!--
+        <div class="back">
+        <img src="https://source.unsplash.com/random" class="backImg">
+    </div>
+    -->
+    
+    
+    	
+</script>
+    <script src="./firstPage.js"></script>
+    <script src="./search.js"></script>
+    <script src="./app.js"></script>
+    <script src="./todo.js"></script>
+    
+</body>
+
+</html>
+
+<!--
+    FqUvNFYA1wDxRhefdNVn4nIBRkZX9f9eLytHLSGetmM
+
+FSVmFASEZfZhFx9hdc8Lh3u4bK9-5rSTdtgvuNlB2ak
+-->
